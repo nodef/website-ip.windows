@@ -31,9 +31,11 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWin));
 			this.WebsiteLabel = new System.Windows.Forms.Label();
 			this.WebsiteText = new System.Windows.Forms.TextBox();
-			this.IpAddressLabel = new System.Windows.Forms.Label();
-			this.IpAddressText = new System.Windows.Forms.TextBox();
+			this.Ipv4AddressLabel = new System.Windows.Forms.Label();
+			this.Ipv4AddressText = new System.Windows.Forms.TextBox();
 			this.ObtainButton = new System.Windows.Forms.Button();
+			this.Ipv6AddressLabel = new System.Windows.Forms.Label();
+			this.Ipv6AddressText = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// WebsiteLabel
@@ -54,43 +56,63 @@
 			this.WebsiteText.Size = new System.Drawing.Size(379, 33);
 			this.WebsiteText.TabIndex = 1;
 			// 
-			// IpAddressLabel
+			// Ipv4AddressLabel
 			// 
-			this.IpAddressLabel.AutoSize = true;
-			this.IpAddressLabel.Font = new System.Drawing.Font("Segoe UI Light", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IpAddressLabel.Location = new System.Drawing.Point(12, 102);
-			this.IpAddressLabel.Name = "IpAddressLabel";
-			this.IpAddressLabel.Size = new System.Drawing.Size(183, 50);
-			this.IpAddressLabel.TabIndex = 2;
-			this.IpAddressLabel.Text = "IP Address";
+			this.Ipv4AddressLabel.AutoSize = true;
+			this.Ipv4AddressLabel.Font = new System.Drawing.Font("Segoe UI Light", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Ipv4AddressLabel.Location = new System.Drawing.Point(12, 102);
+			this.Ipv4AddressLabel.Name = "Ipv4AddressLabel";
+			this.Ipv4AddressLabel.Size = new System.Drawing.Size(220, 50);
+			this.Ipv4AddressLabel.TabIndex = 2;
+			this.Ipv4AddressLabel.Text = "IPv4 Address";
 			// 
-			// IpAddressText
+			// Ipv4AddressText
 			// 
-			this.IpAddressText.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.IpAddressText.Location = new System.Drawing.Point(21, 155);
-			this.IpAddressText.Name = "IpAddressText";
-			this.IpAddressText.Size = new System.Drawing.Size(379, 33);
-			this.IpAddressText.TabIndex = 3;
+			this.Ipv4AddressText.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Ipv4AddressText.Location = new System.Drawing.Point(21, 155);
+			this.Ipv4AddressText.Name = "Ipv4AddressText";
+			this.Ipv4AddressText.Size = new System.Drawing.Size(379, 33);
+			this.Ipv4AddressText.TabIndex = 3;
 			// 
 			// ObtainButton
 			// 
 			this.ObtainButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ObtainButton.Location = new System.Drawing.Point(431, 66);
 			this.ObtainButton.Name = "ObtainButton";
-			this.ObtainButton.Size = new System.Drawing.Size(106, 122);
+			this.ObtainButton.Size = new System.Drawing.Size(106, 211);
 			this.ObtainButton.TabIndex = 4;
 			this.ObtainButton.Text = "Obtain";
 			this.ObtainButton.UseVisualStyleBackColor = true;
 			this.ObtainButton.Click += new System.EventHandler(this.ObtainButton_Click);
 			// 
+			// Ipv6AddressLabel
+			// 
+			this.Ipv6AddressLabel.AutoSize = true;
+			this.Ipv6AddressLabel.Font = new System.Drawing.Font("Segoe UI Light", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Ipv6AddressLabel.Location = new System.Drawing.Point(12, 191);
+			this.Ipv6AddressLabel.Name = "Ipv6AddressLabel";
+			this.Ipv6AddressLabel.Size = new System.Drawing.Size(219, 50);
+			this.Ipv6AddressLabel.TabIndex = 5;
+			this.Ipv6AddressLabel.Text = "IPv6 Address";
+			// 
+			// Ipv6AddressText
+			// 
+			this.Ipv6AddressText.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Ipv6AddressText.Location = new System.Drawing.Point(22, 244);
+			this.Ipv6AddressText.Name = "Ipv6AddressText";
+			this.Ipv6AddressText.Size = new System.Drawing.Size(379, 33);
+			this.Ipv6AddressText.TabIndex = 6;
+			// 
 			// MainWin
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(560, 211);
+			this.ClientSize = new System.Drawing.Size(560, 297);
+			this.Controls.Add(this.Ipv6AddressText);
+			this.Controls.Add(this.Ipv6AddressLabel);
 			this.Controls.Add(this.ObtainButton);
-			this.Controls.Add(this.IpAddressText);
-			this.Controls.Add(this.IpAddressLabel);
+			this.Controls.Add(this.Ipv4AddressText);
+			this.Controls.Add(this.Ipv4AddressLabel);
 			this.Controls.Add(this.WebsiteText);
 			this.Controls.Add(this.WebsiteLabel);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -105,9 +127,11 @@
 
 		private System.Windows.Forms.Label WebsiteLabel;
 		private System.Windows.Forms.TextBox WebsiteText;
-		private System.Windows.Forms.Label IpAddressLabel;
-		private System.Windows.Forms.TextBox IpAddressText;
+		private System.Windows.Forms.Label Ipv4AddressLabel;
+		private System.Windows.Forms.TextBox Ipv4AddressText;
 		private System.Windows.Forms.Button ObtainButton;
+		private System.Windows.Forms.Label Ipv6AddressLabel;
+		private System.Windows.Forms.TextBox Ipv6AddressText;
 	}
 }
 

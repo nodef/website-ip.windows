@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
+using System.Net.Sockets;
 
 namespace sw_WebIp
 {
@@ -35,12 +36,28 @@ namespace sw_WebIp
 				int queryOff = hostName.IndexOf('?');
 				if ( queryOff >= 0 )
 					hostName = hostName.Remove(queryOff);
-				
-				IPAddress[] hostAddresses = Dns.GetHostAddresses(hostName);
-				IpAddressText.Text = hostAddresses[0].ToString();
+
+				IPAddress[] ipAddresses = Dns.GetHostAddresses(hostName);
+				try
+				{
+					IPAddress ipv4Address = ipAddresses.First(ip => ip.AddressFamily == AddressFamily.InterNetwork);
+					Ipv4AddressText.Text = ipv4Address.ToString();
+				}
+				catch(Exception)
+				{ Ipv4AddressText.Text = "Failed to resolve."; }
+				try
+				{
+					IPAddress ipv6Address = ipAddresses.First(ip => ip.AddressFamily == AddressFamily.InterNetworkV6);
+					Ipv6AddressText.Text = ipv6Address.ToString();
+				}
+				catch ( Exception )
+				{ Ipv6AddressText.Text = "Failed to resolve."; }
 			}
 			catch ( Exception )
-			{ IpAddressText.Text = "Failed to resolve."; }
+			{
+				Ipv4AddressText.Text = "Failed to resolve.";
+				Ipv6AddressText.Text = "Failed to resolve.";
+			}
 		}
 	}
 }
