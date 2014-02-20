@@ -117,7 +117,7 @@
 			this.Controls.Add(this.WebsiteLabel);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "MainWin";
-			this.Text = "WebIp";
+			this.Text = "Web Ip";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
