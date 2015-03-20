@@ -19,6 +19,9 @@ Here:
 
 <img src="/assets/img/0.png"><br/>
 Open **cs-website-ip-address**. Enter website URL.
+<br/><br/>
+
 
 <img src="/assets/img/1.png"><br/>
 Select `Obtain` to get the IP address of the web server.
+<br/><br/>
