@@ -1,6 +1,6 @@
-﻿namespace sw_WebIp
+﻿namespace WebsiteIp
 {
-	partial class MainWin
+	partial class MainForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,7 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWin));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.WebsiteLabel = new System.Windows.Forms.Label();
 			this.WebsiteText = new System.Windows.Forms.TextBox();
 			this.Ipv4AddressLabel = new System.Windows.Forms.Label();

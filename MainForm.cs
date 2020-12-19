@@ -1,20 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
 
-namespace sw_WebIp
+
+namespace WebsiteIp
 {
-	public partial class MainWin : Form
+	public partial class MainForm : Form
 	{
-		public MainWin()
+		public MainForm()
 		{
 			InitializeComponent();
 		}
@@ -50,10 +45,10 @@ namespace sw_WebIp
 					IPAddress ipv6Address = ipAddresses.First(ip => ip.AddressFamily == AddressFamily.InterNetworkV6);
 					Ipv6AddressText.Text = ipv6Address.ToString();
 				}
-				catch ( Exception )
+				catch (Exception)
 				{ Ipv6AddressText.Text = "Failed to resolve."; }
 			}
-			catch ( Exception )
+			catch (Exception)
 			{
 				Ipv4AddressText.Text = "Failed to resolve.";
 				Ipv6AddressText.Text = "Failed to resolve.";

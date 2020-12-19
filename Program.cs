@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace sw_WebIp
+
+namespace WebsiteIp
 {
 	static class Program
 	{
@@ -16,7 +14,7 @@ namespace sw_WebIp
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new MainWin());
+			Application.Run(new MainForm());
 		}
 	}
 }
