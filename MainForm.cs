@@ -5,54 +5,34 @@ using System.Net;
 using System.Net.Sockets;
 
 
-namespace WebsiteIp
-{
-	public partial class MainForm : Form
-	{
-		public MainForm()
-		{
-			InitializeComponent();
-		}
+namespace WebsiteIP {
+  public partial class MainForm : Form {
 
-		private void ObtainButton_Click(object sender, EventArgs e)
-		{
-			try
-			{
-				string hostName = WebsiteText.Text;
-				
-				int protocolOff = hostName.IndexOf("://");
-				if(protocolOff >= 0)
-					hostName = hostName.Substring(protocolOff + 3);
-				
-				int pathOff = hostName.IndexOf('/');
-				if(pathOff >= 0)
-					hostName = hostName.Remove(pathOff);
+    public MainForm() {
+      InitializeComponent();
+    }
 
-				int queryOff = hostName.IndexOf('?');
-				if ( queryOff >= 0 )
-					hostName = hostName.Remove(queryOff);
+    private void BSubmit_Click(object sender, EventArgs e) {
+      IPAddress ipv4 = null, ipv6 = null;
+      try {
+        string hostname = GetHostname(TURL.Text);
+        IPAddress[] ips = Dns.GetHostAddresses(hostname);
+        ipv4 = ips.First(ip => ip.AddressFamily == AddressFamily.InterNetwork);
+        ipv6 = ips.First(ip => ip.AddressFamily == AddressFamily.InterNetworkV6);
+      }
+      catch (Exception) {}
+      TIPv4.Text = ipv4 != null ? ipv4.ToString() : "Failed to resolve.";
+      TIPv6.Text = ipv6 != null ? ipv6.ToString() : "Failed to resolve.";
+    }
 
-				IPAddress[] ipAddresses = Dns.GetHostAddresses(hostName);
-				try
-				{
-					IPAddress ipv4Address = ipAddresses.First(ip => ip.AddressFamily == AddressFamily.InterNetwork);
-					Ipv4AddressText.Text = ipv4Address.ToString();
-				}
-				catch(Exception)
-				{ Ipv4AddressText.Text = "Failed to resolve."; }
-				try
-				{
-					IPAddress ipv6Address = ipAddresses.First(ip => ip.AddressFamily == AddressFamily.InterNetworkV6);
-					Ipv6AddressText.Text = ipv6Address.ToString();
-				}
-				catch (Exception)
-				{ Ipv6AddressText.Text = "Failed to resolve."; }
-			}
-			catch (Exception)
-			{
-				Ipv4AddressText.Text = "Failed to resolve.";
-				Ipv6AddressText.Text = "Failed to resolve.";
-			}
-		}
-	}
+    private string GetHostname(string url) {
+      int i = url.IndexOf("://");
+      int j = i<0 ? 0 : i+3;
+      int k = url.IndexOf(":", j);
+      int l = url.IndexOf("/", j);
+      k = k<0 ? url.Length : k;
+      l = l<0 ? url.Length : l;
+      return url.Substring(j, Math.Min(k, l));
+    }
+  }
 }
