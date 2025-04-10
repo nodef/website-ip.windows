@@ -20,3 +20,5 @@ Open **Website IP**. Enter website URL.
 Select `Obtain` to get the IP address of the web server.
 <br>
 <br>
+
+![](https://ga-beacon.deno.dev/G-RC63DPBH3P:SH3Eq-NoQ9mwgYeHWxu7cw/github.com/nodef/website-ip.windows)
